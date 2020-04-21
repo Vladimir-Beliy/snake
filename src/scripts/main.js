@@ -17,6 +17,7 @@ let pauseSwitch = false;
 let inGame = false;
 let score = 0;
 let intervalSpeed = 400;
+let turbo = false;
 let speedUp = 0.85;
 let interval;
 
@@ -33,6 +34,7 @@ function cleaning() {
   pauseSwitch = false;
   score = 0;
   intervalSpeed = 400;
+  turbo = false;
   speedUp = 0.85;
 
   clearInterval(interval);
@@ -260,6 +262,10 @@ function move() {
       interval = setInterval(move, intervalSpeed);
     }
 
+    if (score / 3 === 7) {
+      turbo = true;
+    }
+
     createFood();
   }
 
@@ -275,7 +281,7 @@ function move() {
 }
 
 function navigation(e) {
-  if (steps === true) {
+  if (steps === true || turbo) {
     if (e.keyCode === 37 && direction !== 'right') {
       direction = 'left';
       steps = false;
