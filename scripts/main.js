@@ -16,9 +16,8 @@ let gameStop = false;
 let pauseSwitch = false;
 let inGame = false;
 let score = 0;
-let intervalSpeed = 400;
-let turbo = false;
-let speedUp = 0.85;
+let intervalSpeed = 320;
+let speedUp = 0.9;
 let interval;
 
 document.addEventListener('submit', startGame);
@@ -33,9 +32,8 @@ function cleaning() {
   gameStop = false;
   pauseSwitch = false;
   score = 0;
-  intervalSpeed = 400;
-  turbo = false;
-  speedUp = 0.85;
+  intervalSpeed = 350;
+  speedUp = 0.95;
 
   clearInterval(interval);
 
@@ -58,7 +56,7 @@ function createMenuGame() {
           type="number"
           min="5"
           max="50"
-          value="20"
+          value="12"
           required
         >
         to
@@ -67,7 +65,7 @@ function createMenuGame() {
           type="number"
           min="5"
           max="50"
-          value="20"
+          value="10"
           required
         >
       </p>
@@ -262,10 +260,6 @@ function move() {
       interval = setInterval(move, intervalSpeed);
     }
 
-    if (score / 3 === 7) {
-      turbo = true;
-    }
-
     createFood();
   }
 
@@ -281,7 +275,7 @@ function move() {
 }
 
 function navigation(e) {
-  if (steps === true || turbo) {
+  if (steps === true) {
     if (e.keyCode === 37 && direction !== 'right') {
       direction = 'left';
       steps = false;
