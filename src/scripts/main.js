@@ -264,7 +264,7 @@ function move() {
   }
 
   if (snake[0].classList.contains('snake-body')) {
-    cleaning();
+    clearInterval(interval);
     gameOver();
   }
 
