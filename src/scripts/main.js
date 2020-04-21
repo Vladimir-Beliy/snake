@@ -16,8 +16,8 @@ let gameStop = false;
 let pauseSwitch = false;
 let inGame = false;
 let score = 0;
-let intervalSpeed = 500;
-let speedUp = 0.8;
+let intervalSpeed = 400;
+let speedUp = 0.85;
 let interval;
 
 document.addEventListener('submit', startGame);
@@ -32,8 +32,8 @@ function cleaning() {
   gameStop = false;
   pauseSwitch = false;
   score = 0;
-  intervalSpeed = 500;
-  speedUp = 0.8;
+  intervalSpeed = 400;
+  speedUp = 0.85;
 
   clearInterval(interval);
 
